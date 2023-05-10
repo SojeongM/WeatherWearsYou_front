@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script type="text/javascript">
+        function handleOnChange(e) {
+  // 선택된 데이터의 텍스트값 가져오기
+  const text = e.options[e.selectedIndex].text;
+  
+  console.log(e.options);
+  
+  // 선택한 텍스트 출력
+  document.getElementById('result').innerText
+    = text;
+}
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Wears You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/select.css">
+    <link rel="icon" href="./img/logo.png">
+</head>
+
+<body>
+    <header>
+        
+    </header>
+    <main>
+        
+        <div id="top">
+            Weather Wears You
+        </div>
+        <div id="todo">
+            스타일을 선택하세요
+        </div>
+        <div id="selection">
+            <section id="name">
+                select 
+            </section>
+            <section id="selected">
+
+                <div id="result">선택</div>
+                <div id="next">
+                    
+                    <a href="scollpage.html"
+                            style=
+                            "color: gray ; font-size: 0.7rem"
+                            >건너뛰기</a>
+                    </div>
+            </section>
+        </div>
+        <div id="category">
+            <section id="name">
+                <br>keyword
+            </section>
+            <div id="keyword">
+                <section id="formal">
+                    <div class="selectBox">
+                        <select name="formal" class="select" onchange="handleOnChange(this)">
+                          <option disabled selected>포멀</option>
+                          <option value="neat">단정한</option>
+                          <option value="dressup">격식</option>
+                          <option value="office">출근룩</option>
+                          <option value="minimal">미니멀룩</option>
+                        </select>
+                       </div>
+                    
+                </section>
+                <section id="casual">
+                    <div class="selectBox">
+                        <select name="casual" class="select" onchange="handleOnChange(this)">
+                          <option disabled selected>캐주얼</option>
+                          <option value="comfort">편안한</option>
+                          <option value="effortless">꾸안꾸</option>
+                          <option value="campus">캠퍼스룩</option>
+                          <option value="bright">화사한</option>
+                        </select>
+                       </div>
+                </section>
+                <br>
+                <section id="chic">
+                    <div class="selectBox">
+                        <select name="chic" class="select" onchange="handleOnChange(this)">
+                          <option disabled selected>시크</option>
+                          <option value="layered">레이어드</option>
+                          <option value="monoton">모노톤</option>
+                          <option value="leather">레더</option>
+                          <option value="allblack">올블랙</option>
+                        </select>
+                       </div>
+                </section>
+                <section id="dandy">
+                    <div class="selectBox">
+                        <select name="dandy" class="select" onchange="handleOnChange(this)">
+                          <option disabled selected>댄디</option>
+                          <option value="date">데이트룩</option>
+                          <option value="bf">남친룩</option>
+                          <option value="bright">화사한</option>
+                          <option value="widefit">와이드핏</option>
+                        </select>
+                       </div>
+                </section>
+                <br>
+                <section id="girlish">
+                    <div class="selectBox">
+                        <select name="girlish" class="select" onchange="handleOnChange(this)">
+                          <option disabled selected>걸리시</option>
+                          <option value="cute">귀여운</option>
+                          <option value="gf">여친룩</option>
+                          <option value="bright">화사한</option>
+                          <option value="highteen">하이틴룩</option>
+                          <option value="layered">레이어드</option>
+                        </select>
+                       </div>
+                </section>
+                <section id="romantic">
+                    <div class="selectBox">
+                        <select name="romantic" class="select" onchange="handleOnChange(this)">
+                          <option disabled selected>로맨틱</option>
+                          <option value="date">데이트룩</option>
+                          <option value="guest">하객룩</option>
+                          <option value="blinddate">소개팅</option>
+                          <option value="m&g">상견례</option>
+                          <option value="monoton">모노톤</option>
+                        </select>
+                       </div>
+                </section>
+                <br>
+                <section id="sports">
+                    <div class="selectBox">
+                        <select name="sports" class="select" onchange="handleOnChange(this)">
+                          <option disabled selected>스포츠</option>
+                          <option value="sporty">스포티</option>
+                          <option value="comfort">편안한</option>
+                          <option value="gopgore">고프고어</option>
+                        
+                        </select>
+                       </div>
+                </section>
+                <section id="street">
+                    <div class="selectBox">
+                        <select name="street" class="select" onchange="handleOnChange(this)">
+                          <option disabled selected>스트릿</option>
+                          <option value="unique">유니크</option>
+                          <option value="graphic">그래픽</option>
+                          <option value="hiphop">힙합</option>
+                          <option value="stitch">스티치</option>
+                          <option value="widefit">와이드핏</option>
+                        </select>
+                       </div>
+                </section>
+            
+           
+            </div>
+            
+             </div>
+        <div id="cost">
+            <section id="name1">
+                cost
+            </section>
+            <div id="costselect">
+                <input type="text" id="end" name="maxcost" placeholder="100000원 ">
+                <div id="between">~</div>
+                <input type="text" id="start" name="mincost" placeholder="0원 ">
+                
+                
+            </div>
+        </div>
+        <section id="botton">
+            <a href="scollpage.html"
+                            style=
+                            "color: rgb(255, 255, 255) ; font-size: 0.8rem;background-color: rgb(82, 127, 250);"
+                            >go to recommend</a>
+            
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
