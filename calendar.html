@@ -75,24 +75,27 @@ input[type=date] {
 }
 
 button {
-  font-size:30px;
+  font-size:40px;
   display: block; /* make them block elements */
   margin: 0 auto; /* center them horizontally */
   margin-top: 20px; /* add some top margin */
   cursor: pointer; /* add a pointer cursor on hover */
-  width:300px;
-  height: 70px;
+  width:350px;
+  height: 80px;
   border-radius:0.5rem;
   background-color: rgb(249, 214, 155);
+  border:none;
 }
 
 button:hover {
   background-color: rgb(249, 214, 155); /* darken the background color on hover */
+  
 }
 
 #weather-info {
-  margin-top: 150px; /* add some space between the button and the weather information */
+  margin-top: 100px; /* add some space between the button and the weather information */
   text-align: center;
+
 }
 
 img {
@@ -109,10 +112,22 @@ img {
   padding: 20px; /* add some padding to the box */
   border-radius: 3rem; /* round the corners of the element */
   width: 800px; /* set the width of the box */
-  height: 1200px;
+  height: 1000px;
   margin: 0 auto; /* center the box */
-  margin-top: 200px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  align-items: center;
   font-family: 'NanumSquareNeo-Variable';
+}
+#intro{
+  
+	background-color: rgb(255, 255, 255);
+	font-size: 75px;
+    line-height: 5rem;
+	//font-style: italic;
+	text-align: center;
+	font-family: 'NanumSquareNeo-Variable';
+	color: rgb(24, 24, 185);
 }
 
 </style>
@@ -124,7 +139,7 @@ img {
     </header>
     
     <div id="top">Weather wears you</div>
-    <p>Select a date:</p>
+    <p><section id=intro>날짜를 선택하세요</section></p>
     <input type="date" id="date-picker" min="" max="" onchange="checkDateAvailability()">
     <button onclick="getWeather()">Get Weather</button>
     
@@ -132,6 +147,7 @@ img {
       <h2>Weather information</h2>
       <div id="weather-info"></div>
     </div>
+    <button onclick="navigateToNextPage()">Next Page</button>
     
     <script>
       var minDate = new Date();
@@ -178,6 +194,11 @@ img {
             console.error('Error:', error);
           });
       }
+      function navigateToNextPage() {
+          // Perform the desired action
+          window.location.href = "chat.html";
+        }
+    
     </script>
   </body>
 </html>
