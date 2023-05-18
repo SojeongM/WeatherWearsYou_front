@@ -168,10 +168,17 @@ img {
 
       function getWeather() {
         var selectedDate = new Date(document.getElementById("date-picker").value);
-        var url = "https://api.openweathermap.org/data/2.5/forecast?q=Seoul&appid=bb6c4aa53d9f53755c6507358a1c9dbf&units=metric&lang=en";
+        var url = `http://localhost:8080/weather/$seoul?targetDate=20230520`;
         fetch(url)
-          .then(response => response.json())
+          .then(response => {
+            
+            if(response.ok) {
+                return response.json();
+            }  
+            throw new Error('Network response was not ok.');
+            })
           .then(data => {
+            console.log(JSON.stringify(data));
             var forecasts = data.list;
             var filteredForecasts = forecasts.filter(function(forecast) {
               return forecast.dt_txt.slice(0, 10) === selectedDate.toISOString().slice(0, 10);
@@ -180,6 +187,12 @@ img {
               alert("Sorry, weather information is not available for the selected date.");
               return;
             }
+            if(sessionStorage.getItem('date')){
+              sessionStorage.removeItem('date');
+            }
+            console.log();
+            var storedate=(selectedDate.getFullYear().toString()+("00"+(selectedDate.getMonth()+1).toString()).slice(-2)+("00"+(selectedDate.getDate()).toString()).slice(-2));
+            sessionStorage.setItem('date', storedate);
             var forecast = filteredForecasts[0];
             var temperature = forecast.main.temp;
             var minTemperature = forecast.main.temp_min;
@@ -189,6 +202,8 @@ img {
             var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
             var weatherInfo = document.getElementById("weather-info");
             weatherInfo.innerHTML = "<p>Temperature: " + temperature + " &#8451;</p><p>Minimum Temperature: " + minTemperature + " &#8451;</p><p>Maximum Temperature: " + maxTemperature + " &#8451;</p><p>Description: " + description + "</p><img src='" + iconUrl + "' alt='weather icon'>";
+            sessionStorage.setItem("maxtemp", maxTemperature);
+            sessionStorage.setItem("mintemp", minTemperature);
           })
           .catch(error => {
             console.error('Error:', error);

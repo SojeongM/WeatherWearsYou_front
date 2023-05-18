@@ -121,6 +121,14 @@ main{
     color:rgb(6, 54, 188);
 }
 
+#container{
+    height: 2232px;
+    width: 1170px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    font-family: 'NanumSquareNeo-Variable';
+}
+
 #introduction{
 	height: 10%;
     width: 100%;
@@ -140,7 +148,7 @@ main{
 
 
 #map{
-	height: 50%;
+	height: 55%;
     width: 85%;
 	top: 50%;
 	left: 50%;
@@ -148,6 +156,7 @@ main{
     margin:-70% 1% 1% -42.5%;
 	border-radius: 20px;
     border-width: 5px;
+    align-items: center;
     position: absolute;
 }
 
@@ -195,6 +204,14 @@ main{
 	line-height: 1.5rem;
 	
 }
+#historytext{
+    margin: 5% 0 0 0;
+    text-align: center;
+	background-color: rgb(159, 185, 255);
+	font-family: 'NanumSquareNeo-Variable';
+	line-height: 1.5rem;
+	
+}
 
 #yes{
 	position: absolute;
@@ -221,7 +238,19 @@ main{
     
     <script type="text/javascript">
        
-    
+        function check(){
+            if(!sessionStorage.getItem("location")){
+                alert("지역을 선택해주세요.")
+                url="#";
+            }
+            else{
+                var url="calendar.html"
+                location.href=url;
+            }
+            
+        }
+
+
         function go_branch(city_do) {
      		var Arr = Array("sejong", "chungnam", "jeju", "gyeongnam", "gyeongbuk",
      				"jeonbuk", "chungbuk", "gangwon", "gyeonggi", "jeonnam",
@@ -238,334 +267,18 @@ main{
             //alert(strArr[idx]);
            
             
-        
+            //console.log(city_do)
             var re=confirm(strArr[idx]+" 선택하시겠습니까?");
           
             if(re==true){
                 alert("선택되었습니다.");
                 var mapCondition =strArr[idx];
+
+                if(sessionStorage.getItem('location')){
+                    sessionStorage.removeItem('location');
+                }
+                sessionStorage.setItem('location', city_do);
             
-            if (mapCondition == '세종특별자치시') {
-    
-                $('#sejong').css("fill", "#ffe97d");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '충청남도') {
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#ffe97d");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '제주특별자치도') {
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#ffe97d");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '경상남도') {
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#ffe97d");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '경상북도') {
-                $('#gyeongbuk').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '전라북도') {
-                $('#jeonbuk').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '충청북도') {
-                $('#chungbuk').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '경기도') {
-                $('#gyeonggi').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-               
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '전라남도') {
-                $('#jeonnam').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-              //  $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '울산광역시') {
-                $('#ulsan').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-            //    $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '부산광역시') {
-                $('#busan').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                //$('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '대구광역시') {
-                $('#daegu').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-               // $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '대전광역시') {
-                $('#daejeon').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-               // $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '인천광역시') {
-                $('#incheon').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-               // $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '서울특별시') {
-                $('#seoul').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-              //  $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '광주광역시') {
-                $('#gwangju').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-               // $('#gwangju').css("fill", "#fff");
-                $('#gangwon').css("fill", "#fff");
-            } else if (mapCondition == '강원도') {
-                $('#gangwon').css("fill", "#ffe97d");
-                $('#sejong').css("fill", "#fff");
-                $('#chungnam').css("fill", "#fff");
-                $('#jeju').css("fill", "#fff");
-                $('#gyeongnam').css("fill", "#fff");
-                $('#gyeongbuk').css("fill", "#fff");
-                $('#jeonbuk').css("fill", "#fff");
-                $('#chungbuk').css("fill", "#fff");
-                $('#gyeonggi').css("fill", "#fff");
-                $('#jeonnam').css("fill", "#fff");
-                $('#ulsan').css("fill", "#fff");
-                $('#busan').css("fill", "#fff");
-                $('#daegu').css("fill", "#fff");
-                $('#daejeon').css("fill", "#fff");
-                $('#incheon').css("fill", "#fff");
-                $('#seoul').css("fill", "#fff");
-                $('#gwangju').css("fill", "#fff");
-             //   $('#gangwon').css("fill", "#fff");
-            }
                                 
                 
 
@@ -593,6 +306,9 @@ main{
                 $('#incheon').css("fill", "#fff");
                 $('#seoul').css("fill", "#fff");
                 $('#gwangju').css("fill", "#fff");
+                if(sessionStorage.getItem('location')){
+                    sessionStorage.removeItem('location');
+                }
                 
             }
         }
@@ -602,13 +318,338 @@ main{
         
         /*가맹점 지도 색칠*/
         $(document).ready(function() {
-            $(".dg-map svg").mouseover(function(event) {
+            $(".dg-map svg").click(function(event) {
+                console.log("onclick")
                 var _path = event.target;
                 var city_name = _path.id;
                 var new_p = document.createElement('p');
                 var province = $(_path).parent()[0].id;
                 d3.select(_path).style("fill", "#fff6c7");
                 console.log(_path.id);
+
+
+                if (_path.id == 'sejong') {
+    
+                //$('#sejong').css("fill", "#ffe97d");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'chungnam') {
+                $('#sejong').css("fill", "#fff");
+               // $('#chungnam').css("fill", "#ffe97d");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'jeju') {
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+              //  $('#jeju').css("fill", "#ffe97d");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'gyeongnam') {
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+             //   $('#gyeongnam').css("fill", "#ffe97d");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'gyeongbuk') {
+              //  $('#gyeongbuk').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'jeonbuk') {
+             //   $('#jeonbuk').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'chungbuk') {
+               // $('#chungbuk').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'gyeonggi') {
+            //    $('#gyeonggi').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+               
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'jeonnam') {
+           //     $('#jeonnam').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+              //  $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'ulsan') {
+            //    $('#ulsan').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+            //    $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'busan') {
+                //$('#busan').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                //$('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'daegu') {
+            //    $('#daegu').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+               // $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'daejeon') {
+             //   $('#daejeon').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+               // $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'incheon') {
+             //   $('#incheon').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+               // $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'seoul') {
+             //   $('#seoul').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+              //  $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'gwangju') {
+           //     $('#gwangju').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+               // $('#gwangju').css("fill", "#fff");
+                $('#gangwon').css("fill", "#fff");
+            } else if (_path.id == 'gangwon') {
+            //    $('#gangwon').css("fill", "#ffe97d");
+                $('#sejong').css("fill", "#fff");
+                $('#chungnam').css("fill", "#fff");
+                $('#jeju').css("fill", "#fff");
+                $('#gyeongnam').css("fill", "#fff");
+                $('#gyeongbuk').css("fill", "#fff");
+                $('#jeonbuk').css("fill", "#fff");
+                $('#chungbuk').css("fill", "#fff");
+                $('#gyeonggi').css("fill", "#fff");
+                $('#jeonnam').css("fill", "#fff");
+                $('#ulsan').css("fill", "#fff");
+                $('#busan').css("fill", "#fff");
+                $('#daegu').css("fill", "#fff");
+                $('#daejeon').css("fill", "#fff");
+                $('#incheon').css("fill", "#fff");
+                $('#seoul').css("fill", "#fff");
+                $('#gwangju').css("fill", "#fff");
+             //   $('#gangwon').css("fill", "#fff");
+            }
+
                 //console.log(city_name);
             });
 
@@ -678,17 +719,45 @@ main{
               
             </section>
             <section id="botton">
-              <a href="calendar.html"
+              <a href="#"
+              onclick="check()"
                     style="background-color: rgb(82, 127, 250); 
                     color: white"
                     >select</a>
             </section>
             <section id="bottom">
                 <section id="history">
-                    <br>지난 번 선택한 지역은 [서울] 입니다.<br>
-                    이 지역을 다시 선택하시겠습니까?
+                    <section id="historytext">
+
+                    <script lang="javascript">
+                        var Arr = Array("sejong", "chungnam", "jeju", "gyeongnam", "gyeongbuk",
+     				"jeonbuk", "chungbuk", "gangwon", "gyeonggi", "jeonnam",
+     				"ulsan", "busan", "daegu", "daejeon", "incheon", "seoul",
+     				"gwangju");
+    
+    
+     		var strArr = Array("세종특별자치시", "충청남도", "제주특별자치도", "경상남도", "경상북도",
+    				"전라북도", "충청북도", "강원도", "경기도", "전라남도", "울산광역시", "부산광역시",
+     				"대구광역시", "대전광역시", "인천광역시", "서울특별시", "광주광역시");
+            
+                        var lastlocation;
+                        lastlocation=sessionStorage.getItem("location");
+                        var idx = Arr.indexOf(lastlocation);
+            
+                       
+                        if(!lastlocation){
+                            document.write('지난 기록이 존재하지 않습니다.')
+                        }
+                        else{
+                            document.write('지난 번 선택한 지역은 '+strArr[idx]+' 입니다.<br>')
+                            document.write('다시 선택하시겠습니까?')
+                        }
+                    </script>
+                    </section>
                     <section id="yes">
-                        <a href="calendar.html"
+                        <a href="#"
+              onclick="check()"
+                        
                     style="background-color: rgb(82, 127, 250); 
                     color: white"
                     >continue</a>
