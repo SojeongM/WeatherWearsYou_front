@@ -124,7 +124,7 @@ img {
 	background-color: rgb(255, 255, 255);
 	font-size: 75px;
     line-height: 5rem;
-	//font-style: italic;
+	font-style: italic;
 	text-align: center;
 	font-family: 'NanumSquareNeo-Variable';
 	color: rgb(24, 24, 185);
@@ -166,49 +166,42 @@ img {
 }
 
 
-      function getWeather() {
-        var selectedDate = new Date(document.getElementById("date-picker").value);
-        var url = `http://localhost:8080/weather/$seoul?targetDate=20230520`;
-        fetch(url)
-          .then(response => {
-            
-            if(response.ok) {
-                return response.json();
-            }  
-            throw new Error('Network response was not ok.');
-            })
-          .then(data => {
-            console.log(JSON.stringify(data));
-            var forecasts = data.list;
-            var filteredForecasts = forecasts.filter(function(forecast) {
-              return forecast.dt_txt.slice(0, 10) === selectedDate.toISOString().slice(0, 10);
-            });
-            if (filteredForecasts.length === 0) {
-              alert("Sorry, weather information is not available for the selected date.");
-              return;
-            }
-            if(sessionStorage.getItem('date')){
-              sessionStorage.removeItem('date');
-            }
-            console.log();
-            var storedate=(selectedDate.getFullYear().toString()+("00"+(selectedDate.getMonth()+1).toString()).slice(-2)+("00"+(selectedDate.getDate()).toString()).slice(-2));
-            sessionStorage.setItem('date', storedate);
-            var forecast = filteredForecasts[0];
-            var temperature = forecast.main.temp;
-            var minTemperature = forecast.main.temp_min;
-            var maxTemperature = forecast.main.temp_max;
-            var description = forecast.weather[0].description;
-            var iconCode = forecast.weather[0].icon;
-            var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
-            var weatherInfo = document.getElementById("weather-info");
-            weatherInfo.innerHTML = "<p>Temperature: " + temperature + " &#8451;</p><p>Minimum Temperature: " + minTemperature + " &#8451;</p><p>Maximum Temperature: " + maxTemperature + " &#8451;</p><p>Description: " + description + "</p><img src='" + iconUrl + "' alt='weather icon'>";
-            sessionStorage.setItem("maxtemp", maxTemperature);
-            sessionStorage.setItem("mintemp", minTemperature);
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
-      }
+function getWeather() {
+    var selectedDate = new Date(document.getElementById("date-picker").value);
+    var city = sessionStorage.getItem('location'); 
+    var url = `http://localhost:8080/weather/${encodeURIComponent(city)}?targetDate=${selectedDate.toISOString().slice(0, 10).replace(/-/g, "")}`;
+    fetch(url)
+      .then(response => {
+        if(response.ok) {
+            return response.json();
+        }  
+        throw new Error('Network response was not ok.');
+        })
+      .then(data => {
+        console.log(data);
+        var minTemperature = data.minTemp;
+        var maxTemperature = data.maxTemp;
+        var precipitationRate = data.precipitationRate;
+        var weather = data.weather;
+
+        if(sessionStorage.getItem('date')){
+          sessionStorage.removeItem('date');
+        }
+        var storedate=(selectedDate.getFullYear().toString()+("00"+(selectedDate.getMonth()+1).toString()).slice(-2)+("00"+(selectedDate.getDate()).toString()).slice(-2));
+        sessionStorage.setItem('date', storedate);
+
+        var weatherInfo = document.getElementById("weather-info");
+        weatherInfo.innerHTML = "<p>Minimum Temperature: " + minTemperature + " &#8451;</p><p>Maximum Temperature: " + maxTemperature + " &#8451;</p><p>Precipitation Rate: " + precipitationRate + " %</p><p>Weather: " + weather + "</p>";
+        
+        sessionStorage.setItem("maxtemp", maxTemperature);
+        sessionStorage.setItem("mintemp", minTemperature);
+        sessionStorage.setItem("precipitationRate", precipitationRate);
+        sessionStorage.setItem("weather", weather);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
       function navigateToNextPage() {
           // Perform the desired action
           window.location.href = "chat.html";

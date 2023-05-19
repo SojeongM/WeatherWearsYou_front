@@ -22,10 +22,9 @@
             <section id="info">
                 <section id="date">
                     <script lang="javascript">
-                        var mon=5;
-                        var d=3;
-                        var loc="성동구"
-                        document.write(mon,"월 ",d,"일 " ,loc);
+                        var date = sessionStorage.getItem('date');
+                        var loc = sessionStorage.getItem('location');
+                        document.write(date.slice(4, 6) + "월 " + date.slice(6) + "일 " + loc);
                         
                     </script>
                   
@@ -34,8 +33,9 @@
                 <section id="weather">
                     <section id="temp">
                         <script lang="javascript">
-                            var t=11;
-                            document.write(t+"°C")
+                            var t1 = Math.round(sessionStorage.getItem("mintemp"));
+                            var t2 = Math.round(sessionStorage.getItem("maxtemp"));
+                            document.write("lowest: " + t1 + "°C<br>highest: " + t2 + "°C");
                         </script>
                         <br>
                     </section>
@@ -44,12 +44,12 @@
                         
                     </section>
                     <section id="detail">
-                        <script lang="javascript">
-                            var t1=Math.round( sessionStorage.getItem("mintemp"));
-                            var t2=Math.round( sessionStorage.getItem("maxtemp"));
-                            document.write("lowest: "+t1+"° highest:"+t2+"°");
+                        <script lang="javascript"> 
+                            var precipitationRate = sessionStorage.getItem("precipitationRate");
+                            var weather = sessionStorage.getItem("weather");
+                            document.write("Precipitation Rate: " + precipitationRate + " %<br>");
+                            document.write("Weather: " + weather);
                         </script>
-                        
                     </section>
                     
                 </section>
@@ -86,13 +86,12 @@
                         <section id="user">
                             <section id="userchat">
                                 <script lang="javascript">
-                                    var mon=5;
-                                    var d=3;
-                                    document.write(mon,"월 ",d,"일 옷차림 추천해줘");
-                                    
+                                    var date = sessionStorage.getItem('date');
+                                    var mon = date.slice(4, 6); // extract the month part
+                                    var d = date.slice(6); // extract the day part
+                                    document.write(mon + "월 " + d + "일 옷차림 추천해줘");
                                 </script>
-                                
-                            </section>
+                            </section>                            
                             
                         </section>
                     
@@ -101,15 +100,7 @@
      
                         <section id="gpt">
                             <section id="gptchat">
-                                <script lang="javascript">
-                                    var icon;
-                                    
-                                </script>
-                            오늘은 바람이 조금 불고 비가 오겠습니다. <br><br>
-                            *오늘의 GPT 옷장 추천*<br>
-                            외투: 자켓, 비옷, 아노락<br>
-                            상의: 스웨터, 블라우스, 스웨트셔츠<br>
-                            하의: 청바지, 레깅스, 조거 팬츠<br>
+                                
                            </section>
                             
                         </section>
@@ -132,5 +123,40 @@
     <footer>
 
     </footer>
+</div>
+
+<script>
+    function getGPTChat() {
+        // Assuming gender and targetDate are available
+        var gender = sessionStorage.getItem("newGender"); // Replace with actual value
+        var targetDate = sessionStorage.getItem("date"); // Replace with actual value
+        var city = sessionStorage.getItem("location");
+
+        // Form data
+        var formData = new FormData();
+        formData.append("city", city);
+        formData.append("gender", gender);
+        formData.append("targetDate", targetDate);
+
+        // Fetch request
+        fetch("http://localhost:8080", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            var chat = "오늘의 GPT 옷장 추천<br>";
+            for (const [key, value] of Object.entries(data)) {
+                chat += key + ": " + value.join(", ") + "<br>";
+            }
+            document.getElementById("gptchat").innerHTML = chat;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    getGPTChat(); // Call the function
+</script>
 </body>
 </html>

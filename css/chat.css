@@ -80,9 +80,9 @@ main{
 }
 
 #temp{
-    font-size: 3rem;
+    font-size: 1.5rem;
     height: 70%;
-    width: 35%;
+    width: 60%;
     margin: -13% 0 0 -45%;
     position: absolute;
     top: 50%;
@@ -93,14 +93,14 @@ main{
 }
 #detail{
     background-color:rgb(123, 158, 255);
-    border-radius: 1rem;
+    border-radius: 0.3rem;
     border-width: 5px;
-    height: 20%;
+    height: 60%;
     width: 60%;
     margin: 8% 0 0 -45%;
     position: absolute;
-    top: 50%;
-    font-size: 1rem;
+    top: 30%;
+    font-size: 0.7rem;
     left: 50%;
 }
 
