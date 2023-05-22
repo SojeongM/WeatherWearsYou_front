@@ -1,251 +1,241 @@
 @font-face {
-    font-family: 'NanumSquareNeo-Variable';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "NanumSquareNeo-Variable";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
-*{
-    box-sizing: border-box;
-    margin: 0px 0px;
-    background-color: rgb(255, 255, 255);
-    font-family: 'Prata', cursive;
-    font-size: 50px;
+* {
+  box-sizing: border-box;
+  margin: 0px 0px;
+  background-color: rgb(255, 255, 255);
+  font-family: "Prata", cursive;
+  font-size: 50px;
 }
 
-body{
-	height: 2532px;
-	width: 1170px;
-    background-color: rgb(221, 221, 221);
+body {
+  height: 2532px;
+  width: 1170px;
+  background-color: rgb(221, 221, 221);
 }
 
-header{
-    height: 150px;
-	width: 100%;
-    background-color: rgb(255, 255, 255);
+header {
+  height: 150px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
 }
-main{
-    height: 2382px;
-	width: 1170px;
-    background-color: rgb(255, 255, 255);
-    margin: 0 auto;
+main {
+  height: 2382px;
+  width: 1170px;
+  background-color: rgb(255, 255, 255);
+  margin: 0 auto;
 }
-#top{
-    height: 150px;
-    background-color: rgb(255, 255, 255);
-    text-align: center;
-    line-height: 40px;
-    color:rgb(6, 54, 188);
-}
-
-
-#container{
-    height: 2232px;
-    width: 1170px;
-    background-color: rgb(249, 214, 155);
-    position: relative;
-    font-family: 'NanumSquareNeo-Variable';
+#top {
+  height: 150px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  line-height: 40px;
+  color: rgb(6, 54, 188);
 }
 
-#info{
-    height: 25%;
-    background-color: rgb(249, 214, 155);
-    width: 100%;
-
-
+#container {
+  height: 2232px;
+  width: 1170px;
+  background-color: rgb(249, 214, 155);
+  position: relative;
+  font-family: "NanumSquareNeo-Variable";
 }
 
-#date{
-    height: 20%;
-    margin: 0 5%;
-    line-height: 3rem;
-    background-color: rgb(249, 214, 155);
-    font-size: 1rem;
-    font-family: 'NanumSquareNeo-Variable';
+#info {
+  height: 25%;
+  background-color: rgb(249, 214, 155);
+  width: 100%;
 }
 
-#weather{
-    height: 15%;
-    width: 90%;
-    border-radius: 0.5rem;
-    border-width: 5px;
-    background-color: rgb(123, 158, 255);
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -82% 0 0 -45%;
-    
-    font-style: italic;
+#date {
+  height: 20%;
+  margin: 0 5%;
+  line-height: 3rem;
+  background-color: rgb(249, 214, 155);
+  font-size: 1rem;
+  font-family: "NanumSquareNeo-Variable";
 }
 
-#temp{
-    font-size: 1.5rem;
-    height: 70%;
-    width: 60%;
-    margin: -13% 0 0 -45%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background-color:rgb(123, 158, 255);
-    border-radius: 0.5rem;
-    border-width: 5px;    
-}
-#detail{
-    background-color:rgb(123, 158, 255);
-    border-radius: 0.3rem;
-    border-width: 5px;
-    height: 60%;
-    width: 60%;
-    margin: 8% 0 0 -45%;
-    position: absolute;
-    top: 30%;
-    font-size: 0.7rem;
-    left: 50%;
+#weather {
+  height: 15%;
+  width: 90%;
+  border-radius: 0.5rem;
+  border-width: 5px;
+  background-color: rgb(123, 158, 255);
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -82% 0 0 -45%;
+
+  font-style: italic;
 }
 
-#icon{
-    position: absolute;
-    height: 70%;
-    width: 23%;
-    border-radius: 7px;
-    border-width: 5px;
-    top: 50%;
-    left: 50%;
-    margin: -11% 0 0 20%;
+#temp {
+  font-size: 1.2rem;
+  height: 70%;
+  width: 60%;
+  margin: -13% 0 0 -45%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: rgb(123, 158, 255);
+  border-radius: 0.5rem;
+  border-width: 5px;
+}
+#detail {
+  background-color: rgb(123, 158, 255);
+  border-radius: 0.3rem;
+  border-width: 5px;
+ 
+  width: 60%;
+  margin: 10% 0 0 -45%;
+  position: absolute;
+  top: 30%;
+  font-size: 0.7rem;
+  left: 50%;
 }
 
-#mid{
-    height: 10%;
-    width: 100%;
-    
-    background-color: rgb(255, 255, 255);
-}
-#img{
-    height: 4%;
-    width: 8%;
-    z-index: 3;
-    background-color: aquamarine;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    margin: -42% 0 0 27%;
-    transform: scaleX(-1);
-   
+#icon {
+  position: absolute;
+  height: 70%;
+  width: 23%;
+  border-radius: 7px;
+  border-width: 5px;
+  top: 50%;
+  left: 50%;
+  margin: -11% 0 0 20%;
 }
 
-#search{
-    height: 5%;
-    width: 80%;
-    position: absolute;
-    border-radius: 2rem;
-    border-width: 5px;
-    background-color: rgb(255, 255, 255);
-    border: 0.05rem solid black;
-    top: 50%;
-    left: 50%;
-    margin: -43% 0 0 -40%;
-    font-family: 'NanumSquareNeo-Variable';
-    text-align: left;
-    line-height: 2.1rem;
-    z-index: 2;
-    color: gray;
-    outline: none
+#mid {
+  height: 10%;
+  width: 100%;
+
+  background-color: rgb(255, 255, 255);
 }
-.bottom{
-    background-color: rgb(249, 214, 155);
-    height: 60%;
+#img {
+  height: 4%;
+  width: 8%;
+  z-index: 3;
+  background-color: aquamarine;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -42% 0 0 27%;
+  transform: scaleX(-1);
 }
 
-#chat{
-    height: auto;
-    background-color: rgb(255, 255, 255);
-    
-    
-    width: 85%;
-    
-    position: absolute;
-    
-    margin-left: 7.5%;
-    border-radius: 0.5rem;
-    border-width: 5px;
-    
+#search {
+  height: 5%;
+  width: 80%;
+  position: absolute;
+  border-radius: 2rem;
+  border-width: 5px;
+  background-color: rgb(255, 255, 255);
+  border: 0.05rem solid black;
+  top: 50%;
+  left: 50%;
+  margin: -43% 0 0 -40%;
+  font-family: "NanumSquareNeo-Variable";
+  text-align: left;
+  line-height: 2.1rem;
+  z-index: 2;
+  color: gray;
+  outline: none;
 }
-#recommendation{
-    height: 8%;
-    line-height: 2.5rem;
-    width: 70%;
-    background-color:  rgb(251, 242, 226);
-    text-align: center;
-    margin: 5% 0 5% 15%;
-    
-   
+.bottom {
+  background-color: rgb(249, 214, 155);
+  height: auto;
 }
-.u{
-    display: flex;
-    
-    margin: 3% 30% 0 3%;
-}
-#usericon{
-    background-color: rgb(255, 255, 255);
-    width: 15%;
-    height: 100%;
-    margin: 5%;
-}
-#user{
-    height: auto;
-    width: 100%;
-    border-radius: 0.5rem;
-    border-width: 5px;
 
-    background-color:  rgb(249, 214, 155);
+#chat {
+  height: auto;
+  background-color: rgb(255, 255, 255);
+
+  width: 85%;
+
+  position: absolute;
+
+  margin-left: 7.5%;
+  border-radius: 0.5rem;
+  border-width: 5px;
 }
-#userchat{
-    margin: 10%;
-    float: left;
-    
-    font-family: 'NanumSquareNeo-Variable';
-    background-color:  rgb(249, 214, 155);
-    line-height: 1.5rem;
+#recommendation {
+  height: 8%;
+  line-height: 2.5rem;
+  width: 70%;
+  background-color: rgb(251, 242, 226);
+  text-align: center;
+  margin: 5% 0 5% 15%;
 }
-.g{
-    display: flex;
-    margin: 3%  3% 3%  15% ;
+.u {
+  display: flex;
+
+  margin: 3% 30% 0 3%;
 }
-#gpt{
-    height: auto;
-    width: 100%;
-    background-color: rgb(255, 255, 255);
-    
-    float: right;
-    border-radius: 0.5rem;
-   
-    background-color:  rgb(249, 214, 155);
-    
-    
+#usericon {
+  background-color: rgb(255, 255, 255);
+  width: 15%;
+  height: 100%;
+  margin: 5%;
 }
-#gptchat{
-   margin:10%;
-   width: 80%;
-    background-color:  rgb(249, 214, 155);
-    font-family: 'NanumSquareNeo-Variable';
-    float: right;
-    line-height: 1.5rem;
+#user {
+  height: auto;
+  width: 100%;
+  border-radius: 0.5rem;
+  border-width: 5px;
+
+  background-color: rgb(249, 214, 155);
 }
-#gpticon{
-    width: 10%;
-    height: 10%;
-    margin: 5%;
-    background-color: rgb(255, 255, 255);
-    float: right;
+#userchat {
+  margin: 10%;
+  float: left;
+
+  font-family: "NanumSquareNeo-Variable";
+  background-color: rgb(249, 214, 155);
+  line-height: 1.5rem;
 }
-#blank{
-    width: %;
-    background-color: rgb(88, 61, 61);
+.g {
+  display: flex;
+  margin: 3% 3% 3% 15%;
+}
+#gpt {
+  height: auto;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+
+  float: right;
+  border-radius: 0.5rem;
+
+  background-color: rgb(249, 214, 155);
+}
+#gptchat {
+  margin: 10%;
+  width: 80%;
+  background-color: rgb(249, 214, 155);
+  font-family: "NanumSquareNeo-Variable";
+  float: right;
+  line-height: 1.5rem;
+}
+#gpticon {
+  width: 10%;
+  height: 10%;
+  margin: 5%;
+  background-color: rgb(255, 255, 255);
+  float: right;
+}
+#blank {
+  width: %;
+  background-color: rgb(88, 61, 61);
 }
 
 a {
-    margin: 10px;
-    text-decoration-line: none;
-    
+  margin: 10px;
+  text-decoration-line: none;
 }
