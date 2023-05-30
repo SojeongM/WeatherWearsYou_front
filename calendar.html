@@ -42,78 +42,84 @@ header{
 }
 
 body {
-  background-color: #ffffff; /* set the background color to a light blue */
-  font-family: 'NanumSquareNeo-Variable'; /* set the font family for the entire page */
+  background-color: #ffffff;
+  font-family: 'NanumSquareNeo-Variable'; 
 }
 
 h1 {
-  color: rgb(0, 42, 196); /* set the color of the heading to white */
-  text-align: center; /* center the heading text */
-  /*text-shadow: 2px 2px 4px #000000; /* add a text shadow for emphasis */
+  color: rgb(0, 42, 196); 
+  text-align: center; 
 }
 
 h2 {
-  color: white;
+  color: rgb(77, 76, 76);
   text-align: center;
   font-size: 40px;
+  font-family: 'NanumSquareNeo-Variable';
 }
 
 p {
-  color: rgb(0, 0, 0); /* set the color of paragraphs to a dark grey */
-  font-size: 50px; /* set the font size for paragraphs */
-  line-height: 1.0; /* set the line height to improve readability */
+  color: rgb(0, 0, 0); 
+  font-size: 50px; 
+  line-height: 1.0; 
   text-align: center;
   font-family: 'NanumSquareNeo-Variable';
 }
 
 input[type=date] {
-  display: block; /* make them block elements */
-  margin: 0 auto; /* center them horizontally */
-  margin-left: 150px;
-  margin-top: 20px; /* add some top margin */
-  padding: 50px; /* increase padding */
+  font-size: 18px;
+  font-family: 'NanumSquareNeo-Variable', sans-serif;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 50px;
+  background-color: rgb(249, 214, 155); 
+  border: none;
+  color: #000000;
+  outline: none;
+  border-radius: 2rem;
+}
+input[type=date]::placeholder {
+  color: #999999;
 }
 
 button {
-  font-size:40px;
-  display: block; /* make them block elements */
-  margin: 0 auto; /* center them horizontally */
-  margin-top: 20px; /* add some top margin */
-  cursor: pointer; /* add a pointer cursor on hover */
+  font-size:30px;
+  display: block; 
+  margin: 0 auto;
+  margin-top: 20px; 
+  cursor: pointer; 
   width:350px;
   height: 80px;
   border-radius:0.5rem;
-  background-color: rgb(249, 214, 155);
+  background-color: rgb(82, 127, 250);
   border:none;
+  color:rgb(255, 255, 255);
 }
 
-button:hover {
-  background-color: rgb(249, 214, 155); /* darken the background color on hover */
-  
-}
 
 #weather-info {
-  margin-top: 100px; /* add some space between the button and the weather information */
+  margin-top: 100px; 
   text-align: center;
 
 }
 
 img {
-  display: block; /* make the weather icon a block element */
-  margin: 0 auto; /* center the weather icon */
+  display: block; 
+  margin: 0 auto; 
   width: 300px;
   height: 300px;
   margin-bottom: 850px;
 }
 
 #weather-box {
-  background-color: rgb(82, 127, 250); /* set the background color to blue */
-  color: white; /* set the text color to white */
-  padding: 20px; /* add some padding to the box */
-  border-radius: 3rem; /* round the corners of the element */
-  width: 800px; /* set the width of the box */
+  background-color: rgb(249, 214, 155); 
+  color: white; 
+  padding: 20px; 
+  border-radius: 3rem; 
+  width: 800px; 
   height: 1000px;
-  margin: 0 auto; /* center the box */
+  margin: 0 auto; 
   margin-top: 100px;
   margin-bottom: 100px;
   align-items: center;
@@ -123,8 +129,8 @@ img {
   
 	background-color: rgb(255, 255, 255);
 	font-size: 75px;
-    line-height: 5rem;
-	font-style: italic;
+  line-height: 5rem;
+	
 	text-align: center;
 	font-family: 'NanumSquareNeo-Variable';
 	color: rgb(24, 24, 185);
@@ -144,8 +150,10 @@ img {
     <button onclick="getWeather()">Get Weather</button>
     
     <div id="weather-box">
-      <h2>Weather information</h2>
+      <h2>날씨 정보</h2>
+      <img id="weather-image" src="" alt="Weather Image" style="display: none; width: 300px; height: 300px; margin-top: 50px; margin-bottom: 30px;">
       <div id="weather-info"></div>
+
     </div>
     <button onclick="navigateToNextPage()">Next Page</button>
     
@@ -197,6 +205,39 @@ function getWeather() {
         sessionStorage.setItem("mintemp", minTemperature);
         sessionStorage.setItem("precipitationRate", precipitationRate);
         sessionStorage.setItem("weather", weather);
+
+        var weatherImage = document.getElementById("weather-image");
+      switch (weather) {
+        case "sunny":
+          weatherImage.src = "weather_img/sunny.png";
+          weatherImage.style.display = "block";
+          break;
+        case "rainy":
+          weatherImage.src = "weather_img/rainy.png";
+          weatherImage.style.display = "block";
+          break;
+        case "cloudy":
+        weatherImage.src = "weather_img/cloudyy.png";
+        weatherImage.style.display = "block";
+          break;
+        case "blurry":
+        weatherImage.src = "weather_img/blurry1.png";
+        weatherImage.style.display = "block";
+          break;
+        case "snowy":
+        weatherImage.src = "weather_img/snowy.png";
+        weatherImage.style.display = "block";
+          break;
+        case "stormy":
+        weatherImage.src = "weather_img/stormy.png";
+        weatherImage.style.display = "block";
+          break;
+        default:
+          weatherImage.src = "path/to/default-image.jpg";
+          weatherImage.style.display = "block";
+          break;
+      }
+      
       })
       .catch(error => {
         console.error('Error:', error);

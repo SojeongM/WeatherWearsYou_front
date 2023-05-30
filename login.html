@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/login.css" class="css">
     <link rel="icon" href="./img/logo.png">
+
+
 </head>
 <body>
     <header>
@@ -29,19 +31,22 @@
                 <form class="card-form">
 
                     <div class="input">
-                        <input type="text" class="input-field" />
+                        <input type="text" onkeyup="this.value=this.value.replace(/[^a-z0-9]/g,'')"  id="id" class="input-field" />
                         <label class="input-label">ID</label>
                     </div>
                     <div class="input">
-                        <input type="password" class="input-field" />
+                        <input type="password" onkeyup="this.value=this.value.replace(/[^a-z0-9]/g,'')" id="password" class="input-field" />
                         <label class="input-label">Password</label>
                     </div>
                     <div class="action">
-                        <button class="action-button" ><a href="map.html"
+                        <button id="login" class="action-button" ><a href="#"
+              onclick="check()"
                             style="background-color: rgb(82, 127, 250); 
                             color: white"
                             >Login</a></button>
                     </div>
+
+                    
                     
                 </form>
                 
@@ -52,5 +57,36 @@
     <footer>
 
     </footer>
+
+    
+    <script>
+	    const id = document.getElementById('id')
+        const password = document.getElementById('password')
+        const login = document.getElementById('login')
+        let errStack = 0;
+        console.log(id)
+        login.addEventListener('click', () => {
+            if (id.value == 'acid') {
+            if (password.value == '0000') {
+                alert('로그인 되었습니다!')
+                location.href="map.html"
+            }
+            else {
+                alert('아이디와 비밀번호를 다시 한 번 확인해주세요!')
+                errStack ++;
+                url="#";
+            }   
+        }
+        else {
+            alert('존재하지 않는 계정입니다.')
+            url="#";
+        }
+
+        if (errStack >= 5) {
+            alert('비밀번호를 5회 이상 틀리셨습니다. 비밀번호 찾기를 권장드립니다.')
+            url="#";
+        }
+    })
+    </script>
 </body>
 </html>

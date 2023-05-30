@@ -33,11 +33,11 @@
                         <label class="input-label">name</label>
                     </div>
                     <div class="input">
-                        <input type="id" class="input-field" />
+                        <input type="id" onkeyup="this.value=this.value.replace(/[^a-z0-9]/g,'')" class="input-field" />
                         <label class="input-label">ID</label>
                     </div>
                     <div class="input">
-                        <input type="password" class="input-field" />
+                        <input type="password" onkeyup="this.value=this.value.replace(/[^a-z0-9]/g,'')" class="input-field" />
                         <label class="input-label">password</label>
                     </div>
                     

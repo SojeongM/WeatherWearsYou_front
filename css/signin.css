@@ -1,211 +1,201 @@
 @font-face {
-    font-family: 'NanumSquareNeo-Variable';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
-    font-weight: normal;
+  font-family: "NanumSquareNeo-Variable";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
     font-style: normal;
 }
 
-*{
-    box-sizing: border-box;
-    margin: 0px 0px;
-    background-color: rgb(255, 255, 255);
-    font-family: 'Prata', cursive;
-    font-size: 50px;
+* {
+  box-sizing: border-box;
+  margin: 0px 0px;
+  background-color: rgb(255, 255, 255);
+  font-family: 'SUITE-Regular';
+  font-size: 50px;
 }
 
-body{
-	height: 2532px;
-	width: 1170px;
-    background-color: rgb(255, 255, 255);
+body {
+  height: 2532px;
+  width: 1170px;
+  background-color: rgb(255, 255, 255);
 }
 
-header{
-    height: 150px;
-	width: 100%;
-    background-color: rgb(255, 255, 255);
+header {
+  height: 150px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
 }
-main{
-    height: 2382px;
-	width: 1170px;
-    background-color: rgb(255, 255, 255);
-    margin: 0 auto;
+main {
+  height: 2382px;
+  width: 1170px;
+  background-color: rgb(255, 255, 255);
+  margin: 0 auto;
 }
-#top{
-    height: 150px;
-    background-color: rgb(255, 255, 255);
-    text-align: center;
-    line-height: 40px;
-   
+#top {
+  height: 150px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  line-height: 40px;
 }
 
 img {
-	max-width: 100%;
-	display: block;
-	
+  max-width: 100%;
+  display: block;
 }
 
-
 input {
-	appearance: none;
-	border-radius: 0;
+  appearance: none;
+  border-radius: 0;
 }
 
 .card {
-	
-	height: 100px;
-    background-color: white;
-    position: relative;
+  height: 100px;
+  background-color: white;
+  position: relative;
 }
 
 .card-image {
-    height: 40%;
-    width: 40%;
-	margin: auto;
-    display: block;
-	padding-bottom: 40%;
-	margin-top: 10%;
-	position: relative;
-	background-size: cover;
-	background-image: url(../img/logo1.jpg);
-	
-
+  height: 40%;
+  width: 40%;
+  margin: auto;
+  display: block;
+  padding-bottom: 40%;
+  margin-top: 10%;
+  position: relative;
+  background-size: cover;
+  background-image: url(../img/logo1.jpg);
 }
 
 .card-heading {
-	position: absolute;
-	left: 10%;
-	top: 1%;
-	right: 10%;
-	
+  position: absolute;
+  left: 10%;
+  top: 1%;
+  right: 10%;
 }
 
 .card-form {
-	padding: 50px 2rem 0;
+  padding: 50px 2rem 0;
 }
 
 .input {
-	display: flex;
-	flex-direction: column-reverse;
-	position: relative;
-	padding-top: 1.5rem;
-	&+.input {
-		margin-top: 1.5rem;
-	}
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  padding-top: 1.5rem;
+  & + .input {
+    margin-top: 1.5rem;
+  }
 }
 
 .input-label {
-	color: #8597a3;
-	position: absolute;
-	top: 1.5rem;
-	transition: .25s ease;
+  color: #8597a3;
+  position: absolute;
+  top: 1.5rem;
+  transition: 0.25s ease;
 }
 
 .input-field {
-	border: 0;
-	z-index: 1;
-	background-color: transparent;
-	border-bottom: 2px solid #eee; 
-	font: inherit;
-	font-size: 1.125rem;
-	padding: .25rem 0;
-	font-family: 'NanumSquareNeo-Variable';
-	color: gray;
-	&:focus, &:valid {
-		outline: 0;
-		border-bottom-color: rgb(217, 197, 255);
-		&+.input-label {
-			color: rgb(217, 197, 255);
-			transform: translateY(-1.5rem);
-		}
-	}
-	
+  border: 0;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom: 2px solid #eee;
+  font: inherit;
+  font-size: 1.125rem;
+  padding: 0.25rem 0;
+  font-family: 'SUITE-Regular';
+  color: gray;
+  &:focus,
+  &:valid {
+    outline: 0;
+    border-bottom-color: rgb(123, 158, 255);
+    & + .input-label {
+      color: rgb(123, 158, 255);
+      transform: translateY(-1.5rem);
+    }
+  }
 }
 
 .action {
-	margin-top: 3rem;
-	width: 100%;
-	height: 350px;
-	
-	
-
+  margin-top: 3rem;
+  width: 100%;
+  height: 350px;
 }
 
 .action-button {
-	font: inherit;
-	font-size: 100rem;
+  font: inherit;
+  font-size: 100rem;
 
-	width: 40%;
-	
-    height: 100%;
-	position: absolute;
-	left: 25%;
-	font-size: 2px;
-    text-align: center;
-	line-height: 2rem;
-    
-	background-color: rgb(249, 214, 155);
-	border-radius: 0.5rem;
-	color: #FFF;
-	border: 0;
-	margin: 0 5%;
-	
-	&:focus {
-		outline: 0;
-	}
-	
-	
+  width: 40%;
+
+  height: 120%;
+  position: absolute;
+  left: 25%;
+  font-size: 2px;
+  text-align: center;
+  line-height: 2.2rem;
+
+  background-color: rgb(249, 214, 155);
+  border-radius: 0.5rem;
+  color: #fff;
+  border: 0;
+  margin: 0 5%;
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 .card-info {
-	padding: 1rem 1rem;
-	text-align: center;
-	font-size: .875rem;
-	color: #8597a3;
-	a {
-		display: block;
-		color: #6658d3;
-		text-decoration: none;
-	}
+  padding: 1rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #8597a3;
+  a {
+    display: block;
+    color: #6658d3;
+    text-decoration: none;
+  }
 }
 
 a {
-    text-decoration-line: none;
-    
+  text-decoration-line: none;
 }
-
-
 
 .select {
-    color: rgb(217, 197, 255);
-    padding: 3% 0;
-	height: 30%;
-	background-color: rgb(255, 255, 255);
+  color: rgb(82, 127, 250);
+  padding: 3% 0;
+  height: 30%;
+  background-color: rgb(255, 255, 255);
 }
-.select input[type=radio]{
-    display: none;
+.select input[type="radio"] {
+  display: none;
 }
-.select input[type=radio]+label{
-    display: inline-block;
-    cursor: pointer;
-    height: 100%;
-    width: 20%;
-    border: 1px solid rgb(217, 197, 255);
-    line-height: 1.5rem;
-    text-align: center;
-    font-weight:bold;
-    font-size:0.75rem;
-	margin: 3%;
-
+.select input[type="radio"] + label {
+  display: inline-block;
+  cursor: pointer;
+  height: 100%;
+  width: 20%;
+  border: 1px solid rgb(123, 158, 255);
+  line-height: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.75rem;
+  margin: 3%;
 }
-.select input[type=radio]+label{
-    background-color: #fff;
-    
+.select input[type="radio"] + label {
+  background-color: #fff;
 }
-.select input[type=radio]:checked+label{
-    background-color: rgb(217, 197, 255);
-    color: #fff;
+.select input[type="radio"]:checked + label {
+  background-color: rgb(123, 158, 255);
+  color: #fff;
 }
 a {
-    text-decoration-line: none;
-    
+  text-decoration-line: none;
 }

@@ -6,18 +6,26 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "SUITE-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
   margin: 0px 0px;
-  background-color: rgb(255, 255, 255);
-  font-family: "Prata", cursive;
+  background-color: rgb(249, 214, 155);
+  font-family: "SUITE-Regular";
   font-size: 50px;
 }
 
 body {
-  height: 2532px;
+  height: auto;
   width: 1170px;
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(249, 214, 155);
 }
 
 header {
@@ -26,31 +34,37 @@ header {
   background-color: rgb(255, 255, 255);
 }
 main {
-  height: 2382px;
+  height: auto;
   width: 1170px;
   background-color: rgb(255, 255, 255);
   margin: 0 auto;
 }
+
 #top {
   height: 150px;
   background-color: rgb(255, 255, 255);
   text-align: center;
   line-height: 40px;
   color: rgb(6, 54, 188);
+  font-family: "Prata", cursive;
 }
 
 #container {
-  height: 2232px;
+  height: auto;
+  min-height: 2232px;
+
   width: 1170px;
+
   background-color: rgb(249, 214, 155);
   position: relative;
-  font-family: "NanumSquareNeo-Variable";
+  font-family: "SUITE-Regular";
 }
 
 #info {
   height: 25%;
   background-color: rgb(249, 214, 155);
   width: 100%;
+  font-family: "SUITE-Regular";
 }
 
 #date {
@@ -59,7 +73,7 @@ main {
   line-height: 3rem;
   background-color: rgb(249, 214, 155);
   font-size: 1rem;
-  font-family: "NanumSquareNeo-Variable";
+  font-family: "SUITE-Regular";
 }
 
 #weather {
@@ -73,8 +87,7 @@ main {
   top: 50%;
   left: 50%;
   margin: -82% 0 0 -45%;
-
-  font-style: italic;
+  font-family: "SUITE-Regular";
 }
 
 #temp {
@@ -88,18 +101,22 @@ main {
   background-color: rgb(123, 158, 255);
   border-radius: 0.5rem;
   border-width: 5px;
+  font-family: "SUITE-Regular";
+  line-height: 1.5rem;
 }
 #detail {
   background-color: rgb(123, 158, 255);
   border-radius: 0.3rem;
   border-width: 5px;
- 
+
   width: 60%;
   margin: 10% 0 0 -45%;
   position: absolute;
   top: 30%;
   font-size: 0.7rem;
   left: 50%;
+  font-family: "SUITE-Regular";
+  line-height: 1rem;
 }
 
 #icon {
@@ -127,7 +144,7 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -42% 0 0 27%;
+  margin: -44% 0 0 27%;
   transform: scaleX(-1);
 }
 
@@ -141,17 +158,16 @@ main {
   border: 0.05rem solid black;
   top: 50%;
   left: 50%;
-  margin: -43% 0 0 -40%;
-  font-family: "NanumSquareNeo-Variable";
+  margin: -45% 0 0 -40%;
+  font-family: "SUITE-Regular";
   text-align: left;
   line-height: 2.1rem;
   z-index: 2;
   color: gray;
   outline: none;
 }
-.bottom {
+#bottom {
   background-color: rgb(249, 214, 155);
-  height: auto;
 }
 
 #chat {
@@ -165,14 +181,18 @@ main {
   margin-left: 7.5%;
   border-radius: 0.5rem;
   border-width: 5px;
+  margin-top: 80%;
+  margin-bottom: 5%;
 }
 #recommendation {
-  height: 8%;
+  height: 5%;
+
   line-height: 2.5rem;
-  width: 70%;
+  width: 80%;
+  position: absolute;
   background-color: rgb(251, 242, 226);
   text-align: center;
-  margin: 5% 0 5% 15%;
+  margin: 55% 0% 5% 10%;
 }
 .u {
   display: flex;
@@ -180,9 +200,9 @@ main {
   margin: 3% 30% 0 3%;
 }
 #usericon {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(249, 214, 155);
   width: 15%;
-  height: 100%;
+  height: 90%;
   margin: 5%;
 }
 #user {
@@ -197,7 +217,7 @@ main {
   margin: 10%;
   float: left;
 
-  font-family: "NanumSquareNeo-Variable";
+  font-family: "SUITE-Regular";
   background-color: rgb(249, 214, 155);
   line-height: 1.5rem;
 }
@@ -219,20 +239,25 @@ main {
   margin: 10%;
   width: 80%;
   background-color: rgb(249, 214, 155);
-  font-family: "NanumSquareNeo-Variable";
+  font-family: "SUITE-Regular";
   float: right;
   line-height: 1.5rem;
 }
 #gpticon {
   width: 10%;
-  height: 10%;
+  height: 7%;
   margin: 5%;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(249, 214, 155);
   float: right;
 }
 #blank {
-  width: %;
   background-color: rgb(88, 61, 61);
+}
+#boxLoading {
+  border-radius: 0.5rem;
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  margin-top: 10%;
 }
 
 a {
