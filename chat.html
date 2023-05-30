@@ -61,7 +61,8 @@
                     </section>
                     
                     <section id="icon">
-                        
+                        <img id="weather-image" src="" alt="Weather Image" style="display: none; width: 250px; height: 250px;">
+      
                     </section>
                     <section id="detail">
                         <script lang="javascript"> 
@@ -154,6 +155,44 @@
         var targetDate = sessionStorage.getItem("date"); // Replace with actual value
         var city = sessionStorage.getItem("location");
 
+        var weather = sessionStorage.getItem("weather");
+        var weatherImage = document.getElementById("weather-image");
+        switch (weather) {
+        case "sunny":
+          weatherImage.src = "weather_img/sunny.png";
+          weatherImage.style.display = "block";
+          break;
+        case "rainy":
+          weatherImage.src = "weather_img/rainy.png";
+          weatherImage.style.display = "block";
+          break;
+        case "cloudy":
+        weatherImage.src = "weather_img/cloudyy.png";
+        weatherImage.style.display = "block";
+          break;
+        case "blurry":
+        weatherImage.src = "weather_img/blurry1.png";
+        weatherImage.style.display = "block";
+          break;
+        case "snowy":
+        weatherImage.src = "weather_img/snowy.png";
+        weatherImage.style.display = "block";
+          break;
+        case "stormy":
+        weatherImage.src = "weather_img/stormy.png";
+        weatherImage.style.display = "block";
+          break;
+        default:
+          weatherImage.src = "path/to/default-image.jpg";
+          weatherImage.style.display = "block";
+          break;
+      }
+
+
+
+
+
+
         // Form data
         var formData = new FormData();
         formData.append("city", city);
@@ -199,7 +238,15 @@
         });
     }
 
+    function weather_img(weather){
+    //var weather=sessionStorage.getItem(weather);
+        console.log(sessionStorage.getItem(location));
+        console.log("1");
+        
+    }
+
      getGPTChat(); // Call the function
+
 </script>
 </body>
 </html>
