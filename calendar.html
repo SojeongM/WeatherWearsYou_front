@@ -16,7 +16,7 @@
   font-family: "SUITE-Regular";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
     format("woff2");
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 *{
@@ -46,12 +46,12 @@ header{
   width: 700px;
   height: 50px;
   font-size:80px;
-  font-family: 'NanumSquareNeo-Variable';
+  font-family: "SUITE-Regular";
 }
 
 body {
   background-color: #ffffff;
-  font-family: 'NanumSquareNeo-Variable'; 
+  font-family: "SUITE-Regular";
 }
 
 h1 {
@@ -63,7 +63,7 @@ h2 {
   color: rgb(77, 76, 76);
   text-align: center;
   font-size: 40px;
-  font-family: 'NanumSquareNeo-Variable';
+ font-family: "SUITE-Regular";
 }
 
 p {
@@ -71,12 +71,12 @@ p {
   font-size: 50px; 
   line-height: 1.0; 
   text-align: center;
-  font-family: 'NanumSquareNeo-Variable';
+  font-family: "SUITE-Regular";
 }
 
 input[type=date] {
   font-size: 18px;
-  font-family: 'NanumSquareNeo-Variable', sans-serif;
+  font-family: "SUITE-Regular";
   display: block;
   margin: 0 auto;
   margin-top: 20px;
@@ -131,7 +131,7 @@ img {
   margin-top: 100px;
   margin-bottom: 100px;
   align-items: center;
-  font-family: 'NanumSquareNeo-Variable';
+  font-family: "SUITE-Regular";
 }
 #intro{
   
@@ -140,7 +140,7 @@ img {
   line-height: 5rem;
 	
 	text-align: center;
-	font-family: 'NanumSquareNeo-Variable';
+	font-family: "SUITE-Regular";
 	color: rgb(24, 24, 185);
 }
 
@@ -209,8 +209,8 @@ function getWeather() {
         var weatherInfo = document.getElementById("weather-info");
         weatherInfo.innerHTML = "<p>Minimum Temperature: " + minTemperature + " &#8451;</p><p>Maximum Temperature: " + maxTemperature + " &#8451;</p><p>Precipitation Rate: " + precipitationRate + " %</p><p>Weather: " + weather + "</p>";
         
-        sessionStorage.setItem("maxtemp", maxTemperature);
-        sessionStorage.setItem("mintemp", minTemperature);
+        sessionStorage.setItem("maxTemp", maxTemperature);
+        sessionStorage.setItem("minTemp", minTemperature);
         sessionStorage.setItem("precipitationRate", precipitationRate);
         sessionStorage.setItem("weather", weather);
 
