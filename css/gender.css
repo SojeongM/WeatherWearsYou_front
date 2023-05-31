@@ -7,14 +7,14 @@
 }
 
 @font-face {
-    font-family: 'SUITE-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "SUITE-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
 }
 
-
-a{
+a {
   text-decoration-line: none;
 }
 
@@ -22,7 +22,7 @@ a{
   box-sizing: border-box;
   margin: 0px 0px;
   background-color: rgb(255, 255, 255);
-  font-family: "Prata", cursive;
+
   font-size: 50px;
 }
 
@@ -51,16 +51,16 @@ main {
   text-align: center;
   line-height: 40px;
   color: rgb(6, 54, 188);
+  font-family: "Prata", cursive;
 }
-
-
 
 #container {
   height: 2232px;
   width: 1170px;
   background-color: rgb(255, 255, 255);
   position: relative;
-  font-family: 'SUITE-Regular';
+  font-family: "SUITE-Regular";
+}
 
 #selection {
   background-color: rgb(249, 214, 155);
@@ -82,7 +82,7 @@ main {
   font-size: 1.3rem;
 
   text-align: center;
-  font-family: 'SUITE-Regular';
+  font-family: "SUITE-Regular";
   color: rgb(24, 24, 185);
   margin: 5% 75px 5% 75px;
 }
@@ -102,7 +102,7 @@ main {
   font-weight: bold;
   font-size: 0.75rem;
   margin: 15% 20%;
-  font-family: 'SUITE-Regular';
+  font-family: "SUITE-Regular";
 }
 
 .select input[type="radio"] + label {
@@ -113,8 +113,6 @@ main {
   background-color: rgb(123, 158, 255);
   color: #fff;
 }
-
-
 
 #next {
   position: absolute;
@@ -131,5 +129,5 @@ main {
   line-height: 2rem;
 
   background-color: rgb(82, 127, 250);
-  font-family: 'SUITE-Regular';
+  font-family: "SUITE-Regular";
 }

@@ -19,12 +19,13 @@
       document.getElementById("result").innerText = text;
     }
     function maxcost(c) {
-      if(isNaN(c)){
+      if (isNaN(c)) {
         alert("숫자만 입력 가능합니다.");
         return;
       }
-      if(c<sessionStorage.getItem("mincost")){
-        alert(sessionStorage.getItem("mincost")+"값보다 작을 수 없습니다.")
+      console.log(c);
+      if (c < sessionStorage.getItem("mincost")) {
+        alert(sessionStorage.getItem("mincost") + "값보다 작을 수 없습니다.");
         sessionStorage.removeItem("maxcost");
         return;
       }
@@ -34,38 +35,38 @@
       sessionStorage.setItem("maxcost", c);
     }
     function mincost(c) {
-      if(isNaN(c)){
+      if (isNaN(c)) {
         alert("숫자만 입력 가능합니다.");
         return;
       }
-      if(c>sessionStorage.getItem("maxcost")){
-        alert(sessionStorage.getItem("maxcost")+"값보다 클 수 없습니다.")
+      if (c > sessionStorage.getItem("maxcost")) {
+        alert(sessionStorage.getItem("maxcost") + "값보다 클 수 없습니다.");
         sessionStorage.removeItem("mincost");
         return;
       }
       if (sessionStorage.getItem("mincost")) {
         sessionStorage.removeItem("mincost");
       }
-      
+
       sessionStorage.setItem("mincost", c);
     }
-    function check(){
-      if(!sessionStorage.getItem("mincost")){
-        alert("최소 가격은 0원입니다.")
-        sessionStorage.setItem("mincost", 0)
+    function check() {
+      if (!sessionStorage.getItem("mincost")) {
+        alert("최소 가격은 0원입니다.");
+        sessionStorage.setItem("mincost", 0);
       }
-      if(!sessionStorage.getItem("maxcost")){
-         alert("최대 가격은 1000만원입니다.")
-        sessionStorage.setItem("maxcost", 10000000)
+      if (!sessionStorage.getItem("maxcost")) {
+        alert("최대 가격은 1000만원입니다.");
+        sessionStorage.setItem("maxcost", 10000000);
       }
-      if(sessionStorage.getItem("mincost")>sessionStorage.getItem("maxcost")){
-          alert("최대 가격보다 최소 가격이 더 커 가격 정보는 고려되지 않습니다.")
-          sessionStorage.setItem("mincost", 0)
-          sessionStorage.setItem("maxcost", 10000000)
-          return;
+      if (
+        sessionStorage.getItem("mincost") > sessionStorage.getItem("maxcost")
+      ) {
+        alert("최대 가격보다 최소 가격이 더 커 가격 정보는 고려되지 않습니다.");
+        sessionStorage.setItem("mincost", 0);
+        sessionStorage.setItem("maxcost", 10000000);
+        return;
       }
-      
-      
     }
   </script>
   <head>
@@ -205,7 +206,6 @@
                 <option disabled selected>스포츠</option>
                 <option value="sporty">스포티</option>
                 <option value="comfort">편안한</option>
-                
               </select>
             </div>
           </section>
@@ -230,9 +230,21 @@
       <div id="cost">
         <section id="name1">cost</section>
         <div id="costselect">
-          <input type="text" id="end" name="maxcost" placeholder="100000원 " onchange="maxcost(value)"/>
+          <input
+            type="text"
+            id="end"
+            name="maxcost"
+            placeholder="100000원 "
+            onchange="maxcost(value)"
+          />
           <div id="between">~</div>
-          <input type="text" id="start" name="mincost" placeholder="0원 "  onchange="mincost(value)"/>
+          <input
+            type="text"
+            id="start"
+            name="mincost"
+            placeholder="0원 "
+            onchange="mincost(value)"
+          />
         </div>
       </div>
       <section id="botton">
