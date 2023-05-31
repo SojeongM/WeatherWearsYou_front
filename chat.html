@@ -227,6 +227,9 @@
             div4.style.display='block';
             div5.style.display='block';
             var chat = "오늘의 GPT 옷장 추천<br>";
+            if(sessionStorage.getItem("minTemp") > 24) {
+                delete data.Outer;
+            }
             for (const [key, value] of Object.entries(data)) {
                 chat += key + ": " + value.join(", ") + "<br>";
             }
