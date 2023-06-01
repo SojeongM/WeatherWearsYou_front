@@ -506,7 +506,7 @@
           .then((data) => {
             const ele=document.getElementById('boxLoading');
             ele.remove();
-            if(sessionStorage.getItem("minTemp") > 24) {
+            if(sessionStorage.getItem("minTemp") < 25) {
                 div1.style.display='block';
             }
             div2.style.display='block';
