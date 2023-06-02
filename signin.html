@@ -38,15 +38,14 @@
                     <div class="input">
                         <input type="password" name="password" class="input-field" required/>
                         <label class="input-label">password</label>
-                    </div>
-<!--                     
+                    </div>                     
                     <div class="select">
                         prefer
-                        <input type="radio" id="male" name="gender" value="M"><label for="male">M</label>
-                        <input type="radio" id="female" name="gender" value="F"><label for="female">F</label>
+                        <input type="radio" id="male" name="gender" value="Male"><label for="male">M</label>
+                        <input type="radio" id="female" name="gender" value="Female"><label for="female">F</label>
                         <input type="radio" id="unisex" name="gender" value="Unisex"><label for="unisex">Unisex</label>
                     </div>
-                 -->
+
                     <div class="action">
                         <button type="submit" class="action-button" style="background-color: rgb(249, 214, 155); color: black">Sign up</button>
                     </div>
@@ -75,7 +74,7 @@
                 const email = formData.get('email');
                 const password = formData.get('password');
                 const gender = formData.get('gender');
-        
+                
                 // Send a POST request to the API
                 fetch('http://localhost:8080/api/auth/signup', {
                     method: 'POST',
@@ -93,6 +92,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
+                        sessionStorage.setItem('gender', gender);
                         alert('Sign up successful!');
                         window.location.href = "map.html";
                     } else {
