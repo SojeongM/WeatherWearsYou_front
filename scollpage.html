@@ -595,6 +595,10 @@
                 }
               }
             }
+            if (index[2] === 0) { // index[2] corresponds to 'Outer'
+              var outerSection = document.getElementById("section_0"); // The id of the 'Outer' section
+              outerSection.remove();
+            }
 
           })
           .catch((error) => {
