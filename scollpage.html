@@ -460,14 +460,14 @@
         const div3 = document.getElementById("section_2");
         const div4 = document.getElementById("section_3");
 
-        div1.style.display = "none";
-        div2.style.display = "none";
-        div3.style.display = "none";
-        div4.style.display = "none";
+        div1.style.display='none';
+        div2.style.display='none';
+        div3.style.display='none';
+        div4.style.display='none';
 
         // Assuming gender and targetDate are available
         var city = sessionStorage.getItem("location");
-        var gender = sessionStorage.getItem("newGender"); // Replace with actual value
+        var gender = sessionStorage.getItem("newgender"); // Replace with actual value
         var targetDate = sessionStorage.getItem("date"); // Replace with actual value
         var style =
           sessionStorage.getItem("bigcategory") +
@@ -492,7 +492,7 @@
         // Fetch request and form URL
         var mincost = sessionStorage.getItem("mincost");
         var maxcost = sessionStorage.getItem("maxcost");
-
+        
         fetch("http://localhost:8080", {
           method: "POST",
           body: formData,
@@ -501,24 +501,22 @@
           .then((data) => {
             const ele = document.getElementById("boxLoading");
             ele.remove();
-            if (sessionStorage.getItem("minTemp") < 25) {
-              div1.style.display = "block";
+            if(sessionStorage.getItem("minTemp") < 25) {
+                div1.style.display='block';
             }
-            div2.style.display = "block";
-            div3.style.display = "block";
-            div4.style.display = "block";
-            itemURL = `http://localhost:8080/items?chatGPTResponse=${JSON.stringify(
-              data
-            )}`;
+            div2.style.display='block';
+            div3.style.display='block';
+            div4.style.display='block';
+            itemURL = `http://localhost:8080/items?chatGPTResponse=${JSON.stringify(data)}`;
             if (mincost != 0) {
               itemURL += "&minPrice=" + mincost;
             }
             if (maxcost != 10000000) {
               itemURL += "&maxPrice=" + maxcost;
             }
-            console.log(itemURL);
-            //itemURL = 'http://localhost:8080/items?chatGPTResponse={"Top":["셔츠/블라우스(오버핏, 루즈핏셔츠)","민소매 티셔츠(크롭)","긴소매 티셔츠(오버핏)"],"Bottom":["트레이닝/조거 팬츠(와이드핏)","숏팬츠(밴딩)","코튼 팬츠(와이드핏)"],"Outer":["나일론/코치 재킷","스타디움 재킷","기타 아우터(경량)"],"Shoes":["패션스니커즈화(블랙)","캔버스/단화","샌들(서머슈즈)"]}';
+            itemURL += "&gender=" + gender;
 
+            console.log(itemURL);
             return fetch(itemURL);
           })
           .then((response) => response.json())
@@ -563,6 +561,7 @@
                   data.data[i].price + "원";
               }
             }
+            console.log(index);
 
             for (var i = 0; i < 4; i++) {
               switch (i) {
@@ -582,12 +581,16 @@
                   continue;
               }
 
-              for (var j = index[i]; j < 10; j++) {
-                prodId += j;
-                var element = document.getElementById(prodId);
-                element.parentNode.removeChild(element);
+              var detailprodId;
+              for(var j = index[i]; j < 10; j++) {
+                detailprodId = prodId + j;
+                var element = document.getElementById(detailprodId);
+                if(element != null) {
+                  element.remove();
+                }
               }
             }
+
           })
           .catch((error) => {
             console.error("Error:", error);
