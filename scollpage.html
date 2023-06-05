@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Prata&display=swap"
+            rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        font-family: "NanumSquareNeo-Variable";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "SUITE-Regular";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
+          format("woff2");
+        font-weight: 500;
+        font-style: normal;
+      }
+      * {
+        font-family: "SUITE-Regular";
+      }
+      #top {
+        height: 150px;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+        line-height: 40px;
+        color: rgb(6, 54, 188);
+        font-size: 50px;
+        font-family: "Prata", cursive;
+      }
+      header {
+        height: 150px;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+      }
+      h1 {
+        text-align: center;
+      }
+
+      .section h2 {
+        font-size: 50px;
+        text-align: center;
+
+        margin-top: 160px;
+      }
+
+      .category {
+        margin-bottom: 50px;
+      }
+
+      .scroll-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        width: 100%;
+        height: 650px;
+        background-color: rgb(249, 214, 155);
+        margin-top: 60px;
+      }
+
+      .scroll-heading {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      img {
+        width: 200px;
+        height: 200px;
+        border: 2px solid #000000;
+      }
+
+      .section {
+        background-color: #ffffff;
+        padding: 0px;
+      }
+
+      .product {
+        width: 600px;
+        margin-right: 20px;
+        /*border: 1px solid #ddd;*/
+        padding: 10px;
+        text-align: center;
+      }
+
+      .product img {
+        /*width: 200px;
+            /*height: 250px; */
+        height: 450px;
+        width: 400px;
+      }
+
+      .product-name {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        color: rgb(0, 0, 0);
+      }
+
+      .product-price {
+        /*font-weight: bold;*/
+        color: rgb(0, 0, 0);
+        margin-bottom: 20px;
+      }
+      .product a {
+        text-decoration: none; /* removes underline from the link */
+      }
+
+      .product-name,
+      .product-price {
+        text-decoration: none; /* removes underline from the product name and price */
+      }
+
+      #weather-box {
+        background-color: blue; /* set the background color to blue */
+        color: white; /* set the text color to white */
+        padding: 20px; /* add some padding to the box */
+        border-radius: 10px; /* round the corners of the element */
+        width: 100px; /* set the width of the box */
+        height: 100px;
+        margin: 0 auto; /* center the box */
+        margin-top: 500px;
+      }
+      #boxLoading {
+
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  font-size: 50px;
+  margin-top: 65%;
+  text-align: center;
+  width: 100%;
+  border-color: none;
+}
+    </style>
+</head>
+<body>
+<header></header>
+
+<div id="top">Weather wears you</div>
+<section id="boxLoading"></section>
+
+
+<div class="section" id="section_1">
+    <h2>Top</h2>
+    <div class="scroll-container">
+        <div id="Top0" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer1.jpg" />
+                <p class="product-name">Product Name 1</p>
+                <p class="product-price">$1.99</p></a
+            >
+        </div>
+        <div id="Top1" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer2.jpg" />
+                <p class="product-name">Product Name 2</p>
+                <p class="product-price">$2.99</p></a
+            >
+        </div>
+        <div id="Top2" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer3.jpg" />
+                <p class="product-name">Product Name 3</p>
+                <p class="product-price">$3.99</p></a
+            >
+        </div>
+        <div id="Top3" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer4.jpg" />
+                <p class="product-name">Product Name 4</p>
+                <p class="product-price">$4.99</p></a
+            >
+        </div>
+        <div id="Top4" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer5.jpg" />
+                <p class="product-name">Product Name 5</p>
+                <p class="product-price">$5.99</p></a
+            >
+        </div>
+        <div id="Top5" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer6.jpg" />
+                <p class="product-name">Product Name 6</p>
+                <p class="product-price">$6.99</p></a
+            >
+        </div>
+        <div id="Top6" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer1.jpg" />
+                <p class="product-name">Product Name 7</p>
+                <p class="product-price">$7.99</p></a
+            >
+        </div>
+        <div id="Top7" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer2.jpg" />
+                <p class="product-name">Product Name 8</p>
+                <p class="product-price">$8.99</p></a
+            >
+        </div>
+        <div id="Top8" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer3.jpg" />
+                <p class="product-name">Product Name 9</p>
+                <p class="product-price">$9.99</p></a
+            >
+        </div>
+        <div id="Top9" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer4.jpg" />
+                <p class="product-name">Product Name 10</p>
+                <p class="product-price">$10.99</p></a
+            >
+        </div>
+    </div>
+</div>
+
+<div class="section" id="section_2">
+    <h2>Bottom</h2>
+    <div class="scroll-container">
+        <div id="Bottom0" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer1.jpg" />
+                <p class="product-name">Product Name 1</p>
+                <p class="product-price">$1.99</p></a
+            >
+        </div>
+        <div id="Bottom1" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer2.jpg" />
+                <p class="product-name">Product Name 2</p>
+                <p class="product-price">$2.99</p></a
+            >
+        </div>
+        <div id="Bottom2" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer3.jpg" />
+                <p class="product-name">Product Name 3</p>
+                <p class="product-price">$3.99</p></a
+            >
+        </div>
+        <div id="Bottom3" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer4.jpg" />
+                <p class="product-name">Product Name 4</p>
+                <p class="product-price">$4.99</p></a
+            >
+        </div>
+        <div id="Bottom4" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer5.jpg" />
+                <p class="product-name">Product Name 5</p>
+                <p class="product-price">$5.99</p></a
+            >
+        </div>
+        <div id="Bottom5" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer6.jpg" />
+                <p class="product-name">Product Name 6</p>
+                <p class="product-price">$6.99</p></a
+            >
+        </div>
+        <div id="Bottom6" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer1.jpg" />
+                <p class="product-name">Product Name 7</p>
+                <p class="product-price">$7.99</p></a
+            >
+        </div>
+        <div id="Bottom7" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer2.jpg" />
+                <p class="product-name">Product Name 8</p>
+                <p class="product-price">$8.99</p></a
+            >
+        </div>
+        <div id="Bottom8" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer3.jpg" />
+                <p class="product-name">Product Name 9</p>
+                <p class="product-price">$9.99</p></a
+            >
+        </div>
+        <div id="Bottom9" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer4.jpg" />
+                <p class="product-name">Product Name 10</p>
+                <p class="product-price">$10.99</p></a
+            >
+        </div>
+    </div>
+</div>
+
+<div class="section" id="section_3">
+    <h2>Shoes</h2>
+    <div class="scroll-container">
+        <div id="Shoes0" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer1.jpg" />
+                <p class="product-name">Product Name 1</p>
+                <p class="product-price">$1.99</p></a
+            >
+        </div>
+        <div id="Shoes1" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer2.jpg" />
+                <p class="product-name">Product Name 2</p>
+                <p class="product-price">$2.99</p></a
+            >
+        </div>
+        <div id="Shoes2" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer3.jpg" />
+                <p class="product-name">Product Name 3</p>
+                <p class="product-price">$3.99</p></a
+            >
+        </div>
+        <div id="Shoes3" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer4.jpg" />
+                <p class="product-name">Product Name 4</p>
+                <p class="product-price">$4.99</p></a
+            >
+        </div>
+        <div id="Shoes4" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer5.jpg" />
+                <p class="product-name">Product Name 5</p>
+                <p class="product-price">$5.99</p></a
+            >
+        </div>
+        <div id="Shoes5" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer6.jpg" />
+                <p class="product-name">Product Name 6</p>
+                <p class="product-price">$6.99</p></a
+            >
+        </div>
+        <div id="Shoes6" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer1.jpg" />
+                <p class="product-name">Product Name 7</p>
+                <p class="product-price">$7.99</p></a
+            >
+        </div>
+        <div id="Shoes7" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer2.jpg" />
+                <p class="product-name">Product Name 8</p>
+                <p class="product-price">$8.99</p></a
+            >
+        </div>
+        <div id="Shoes8" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer3.jpg" />
+                <p class="product-name">Product Name 9</p>
+                <p class="product-price">$9.99</p></a
+            >
+        </div>
+        <div id="Shoes9" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer4.jpg" />
+                <p class="product-name">Product Name 10</p>
+                <p class="product-price">$10.99</p></a
+            >
+        </div>
+    </div>
+</div>
+
+<div class="section"id="section_0">
+
+    <h2>Outer</h2>
+    <div class="scroll-container">
+        <div id="Outer0" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer1.jpg" />
+                <p class="product-name">Product Name 1</p>
+                <p class="product-price">$1.99</p></a
+            >
+        </div>
+        <div id="Outer1" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer2.jpg" />
+                <p class="product-name">Product Name 2</p>
+                <p class="product-price">$2.99</p></a
+            >
+        </div>
+        <div id="Outer2" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer3.jpg" />
+                <p class="product-name">Product Name 3</p>
+                <p class="product-price">$3.99</p></a
+            >
+        </div>
+        <div id="Outer3" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer4.jpg" />
+                <p class="product-name">Product Name 4</p>
+                <p class="product-price">$4.99</p></a
+            >
+        </div>
+        <div id="Outer4" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer5.jpg" />
+                <p class="product-name">Product Name 5</p>
+                <p class="product-price">$5.99</p></a
+            >
+        </div>
+        <div id="Outer5" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer6.jpg" />
+                <p class="product-name">Product Name 6</p>
+                <p class="product-price">$6.99</p></a
+            >
+        </div>
+        <div id="Outer6" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer1.jpg" />
+                <p class="product-name">Product Name 7</p>
+                <p class="product-price">$7.99</p></a
+            >
+        </div>
+        <div id="Outer7" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer2.jpg" />
+                <p class="product-name">Product Name 8</p>
+                <p class="product-price">$8.99</p></a
+            >
+        </div>
+        <div id="Outer8" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer3.jpg" />
+                <p class="product-name">Product Name 9</p>
+                <p class="product-price">$9.99</p></a
+            >
+        </div>
+        <div id="Outer9" class="product">
+            <a href="https://www.example1.com"
+            ><img src="outer4.jpg" />
+                <p class="product-name">Product Name 10</p>
+                <p class="product-price">$10.99</p></a
+            >
+        </div>
+    </div>
+</div>
+
+<script>
+      var itemURL;
+
+      function getItems() {
+
+         let loader = `상품을 불러오는 중입니다.<br>잠시만 기다려 주세요.`;
+        document.getElementById('boxLoading').innerHTML = loader;
+         const div1=document.getElementById('section_0');
+        const div2=document.getElementById('section_1');
+        const div3=document.getElementById('section_2');
+        const div4=document.getElementById('section_3');
+
+        div1.style.display='none';
+        div2.style.display='none';
+        div3.style.display='none';
+        div4.style.display='none';
+
+        // Assuming gender and targetDate are available
+        var city = sessionStorage.getItem("location");
+        var gender = sessionStorage.getItem("newgender"); // Replace with actual value
+        var targetDate = sessionStorage.getItem("date"); // Replace with actual value
+        var style =
+          sessionStorage.getItem("bigcategory") +
+          ", " +
+          sessionStorage.getItem("smallcategory");
+        var weather = sessionStorage.getItem("weather");
+        var precipitationRate = sessionStorage.getItem("precipitationRate");
+        var minTemp = sessionStorage.getItem("minTemp");
+        var maxTemp = sessionStorage.getItem("maxTemp");
+
+        // Form data
+        var formData = new FormData();
+        formData.append("city", city);
+        formData.append("gender", gender);
+        formData.append("targetDate", targetDate);
+        formData.append("style", style);
+        formData.append("weather", weather);
+        formData.append("precipitationRate", precipitationRate);
+        formData.append("minTemp", minTemp);
+        formData.append("maxTemp", maxTemp);
+
+        // Fetch request and form URL
+        var mincost = sessionStorage.getItem("mincost");
+        var maxcost = sessionStorage.getItem("maxcost");
+
+        
+        fetch("http://localhost:8080", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            const ele=document.getElementById('boxLoading');
+            ele.remove();
+            if(sessionStorage.getItem("minTemp") < 25) {
+                div1.style.display='block';
+            }
+            div2.style.display='block';
+            div3.style.display='block';
+            div4.style.display='block';
+            itemURL = `http://localhost:8080/items?chatGPTResponse=${JSON.stringify(data)}`;
+            if (mincost != 0) {
+              itemURL += "&minPrice=" + mincost;
+            }
+            if (maxcost != 10000000) {
+              itemURL += "&maxPrice=" + maxcost;
+            }
+            itemURL += "&gender=" + gender;
+
+            console.log(itemURL);
+            return fetch(itemURL);
+          })
+          .then((response) => response.json())
+          .then((data) => {
+            var prodId;
+            var index = [0, 0, 0, 0];
+            var frontURL = "https://www.musinsa.com/app/goods/";
+            for (var i = 0; i < data.count; i++) {
+              switch (data.data[i].category) {
+                case 0:
+                  prodId = "Top" + index[0];
+                  index[0]++;
+                  break;
+                case 1:
+                  prodId = "Bottom" + index[1];
+                  index[1]++;
+                  break;
+                case 2:
+                  prodId = "Outer" + index[2];
+                  index[2]++;
+                  break;
+                case 3:
+                  prodId = "Shoes" + index[3];
+                  index[3]++;
+                  break;
+                default:
+                  continue;
+              }
+              var prod = document.getElementById(prodId);
+              if (prod != null) {
+                prod
+                  .getElementsByTagName("a")
+                  .item(0)
+                  .setAttribute("href", frontURL + data.data[i].id);
+                prod
+                  .getElementsByTagName("img")
+                  .item(0)
+                  .setAttribute("src", data.data[i].imgLink);
+                prod.getElementsByClassName("product-name").item(0).innerHTML =
+                  data.data[i].name;
+                prod.getElementsByClassName("product-price").item(0).innerHTML =
+                  data.data[i].price + "원";
+              }
+            }
+            console.log(index);
+
+            for (var i = 0; i < 4; i++) {
+              switch (i) {
+                case 0:
+                  prodId = "Top";
+                  break;
+                case 1:
+                  prodId = "Bottom";
+                  break;
+                case 2:
+                  prodId = "Outer";
+                  break;
+                case 3:
+                  prodId = "Shoes";
+                  break;
+                default:
+                  continue;
+              }
+
+              var detailprodId;
+              for(var j = index[i]; j < 10; j++) {
+                detailprodId = prodId + j;
+                var element = document.getElementById(detailprodId);
+                if(element != null) {
+                  element.remove();
+                }
+              }
+            }
+            if (index[2] === 0) { // index[2] corresponds to 'Outer'
+              var outerSection = document.getElementById("section_0"); // The id of the 'Outer' section
+              outerSection.remove();
+            }
+
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+
+      getItems(); // Call the function
+    </script>
+</body>
+</html>

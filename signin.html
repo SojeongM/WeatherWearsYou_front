@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Wears You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/signin.css" class="css">
+    <link rel="icon" href="./img/logo.png">
+</head>
+<body>
+    <header>
+        
+    </header>
+    <main>
+
+        <div id="top">
+            
+        </div>
+        <div class="container">
+            <!-- code here -->
+            <div class="card">
+                <div class="card-image">	
+                    <br class="card-heading">
+                        
+                    </h2>
+                </div>
+                <form id="signup-form" class="card-form">
+                    <div class="input">
+                        <input type="text" name="username" class="input-field" required/>
+                        <label class="input-label">name</label>
+                    </div>
+                    <div class="input">
+                        <input type="email" name="email" class="input-field" required/>
+                        <label class="input-label">ID</label>
+                    </div>
+                    <div class="input">
+                        <input type="password" name="password" class="input-field" required/>
+                        <label class="input-label">password</label>
+                    </div>                     
+                    <div class="select">
+                        prefer
+                        <input type="radio" id="male" name="gender" value="Male"><label for="male">M</label>
+                        <input type="radio" id="female" name="gender" value="Female"><label for="female">F</label>
+                        <input type="radio" id="unisex" name="gender" value="Unisex"><label for="unisex">Unisex</label>
+                    </div>
+
+                    <div class="action">
+                        <button type="submit" class="action-button" style="background-color: rgb(249, 214, 155); color: black">Sign up</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+
+    </main>
+    <footer>
+
+    </footer>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            // Fetch form to apply custom Bootstrap validation
+            var form = document.getElementById("signup-form");
+          
+            if (form.checkValidity() === false) {
+                event.stopPropagation()
+            } else {
+                // Extract info from form
+                const formData = new FormData(form);
+                const username = formData.get('username');
+                const email = formData.get('email');
+                const password = formData.get('password');
+                const gender = formData.get('gender');
+                
+                // Send a POST request to the API
+                fetch('http://localhost:8080/api/auth/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        email: email,
+                        password: password,
+                        gender: gender,
+                    }),
+                })
+
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        sessionStorage.setItem('gender', gender);
+                        alert('Sign up successful!');
+                        window.location.href = "map.html";
+                    } else {
+                        alert('Sign up failed: ' + data.message);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            }
+        
+            form.classList.add('was-validated')
+        })
+        </script>
+        
+</body>
+</html>
