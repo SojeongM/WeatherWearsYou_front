@@ -206,8 +206,12 @@ function getWeather() {
         var storedate=(selectedDate.getFullYear().toString()+("00"+(selectedDate.getMonth()+1).toString()).slice(-2)+("00"+(selectedDate.getDate()).toString()).slice(-2));
         sessionStorage.setItem('date', storedate);
 
+        var strArr = Array("sunny", "cloudy", "rainy", "blurry");
+        var Arrr=Array("맑음", "구름 많음", "흐리고 비", "흐림");
+        var idx = strArr.indexOf(weather);
+    
         var weatherInfo = document.getElementById("weather-info");
-        weatherInfo.innerHTML = "<p>Minimum Temperature: " + minTemperature + " &#8451;</p><p>Maximum Temperature: " + maxTemperature + " &#8451;</p><p>Precipitation Rate: " + precipitationRate + " %</p><p>Weather: " + weather + "</p>";
+        weatherInfo.innerHTML = "<p>최저 기온: " + minTemperature + " &#8451;</p><p>최고 기온: " + maxTemperature + " &#8451;</p><p>강수 확률: " + precipitationRate + " %</p><p>날씨: " + Arrr[idx] + "</p>";
         
         sessionStorage.setItem("maxTemp", maxTemperature);
         sessionStorage.setItem("minTemp", minTemperature);
