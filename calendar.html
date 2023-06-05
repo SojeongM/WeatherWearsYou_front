@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Weather Information</title>
+    <style>
+      @font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: "SUITE-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+*{
+  font-family: "SUITE-Regular";
+}
+
+#top{
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 40px;
+    color:rgb(6, 54, 188);
+    font-family: 'Prata', cursive;
+    font-size: 50px;
+   
+}
+header{
+    height: 150px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+#date-picker {
+  margin-top: 100px;
+  margin-bottom:100px;
+  font-size: 20px;
+  width: 700px;
+  height: 50px;
+  font-size:80px;
+  font-family: "SUITE-Regular";
+}
+
+body {
+  background-color: #ffffff;
+  font-family: "SUITE-Regular";
+}
+
+h1 {
+  color: rgb(0, 42, 196); 
+  text-align: center; 
+}
+
+h2 {
+  color: rgb(77, 76, 76);
+  text-align: center;
+  font-size: 40px;
+ font-family: "SUITE-Regular";
+}
+
+p {
+  color: rgb(0, 0, 0); 
+  font-size: 50px; 
+  line-height: 1.0; 
+  text-align: center;
+  font-family: "SUITE-Regular";
+}
+
+input[type=date] {
+  font-size: 18px;
+  font-family: "SUITE-Regular";
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 50px;
+  background-color: rgb(249, 214, 155); 
+  border: none;
+  color: #000000;
+  outline: none;
+  border-radius: 2rem;
+}
+input[type=date]::placeholder {
+  color: #999999;
+}
+
+button {
+  font-size:30px;
+  display: block; 
+  margin: 0 auto;
+  margin-top: 20px; 
+  cursor: pointer; 
+  width:350px;
+  height: 80px;
+  border-radius:0.5rem;
+  background-color: rgb(82, 127, 250);
+  border:none;
+  color:rgb(255, 255, 255);
+}
+
+
+#weather-info {
+  margin-top: 100px; 
+  text-align: center;
+
+}
+
+img {
+  display: block; 
+  margin: 0 auto; 
+  width: 300px;
+  height: 300px;
+  margin-bottom: 850px;
+}
+
+#weather-box {
+  background-color: rgb(249, 214, 155); 
+  color: white; 
+  padding: 20px; 
+  border-radius: 3rem; 
+  width: 800px; 
+  height: 1000px;
+  margin: 0 auto; 
+  margin-top: 100px;
+  margin-bottom: 100px;
+  align-items: center;
+  font-family: "SUITE-Regular";
+}
+#intro{
+  
+	background-color: rgb(255, 255, 255);
+	font-size: 75px;
+  line-height: 5rem;
+	
+	text-align: center;
+	font-family: "SUITE-Regular";
+	color: rgb(24, 24, 185);
+}
+
+</style>
+
+</head>
+<body>
+    <header>
+      
+    </header>
+    
+    <div id="top">Weather wears you</div>
+    <p><section id=intro>날짜를 선택하세요</section></p>
+    <input type="date" id="date-picker" min="" max="" onchange="checkDateAvailability()">
+    <button onclick="getWeather()">Get Weather</button>
+    
+    <div id="weather-box">
+      <h2>날씨 정보</h2>
+      <img id="weather-image" src="" alt="Weather Image" style="display: none; width: 300px; height: 300px; margin-top: 50px; margin-bottom: 30px;">
+      <div id="weather-info"></div>
+
+    </div>
+    <button onclick="navigateToNextPage()">Next Page</button>
+    
+    <script>
+      var minDate = new Date();
+      var maxDate = new Date();
+      maxDate.setDate(maxDate.getDate() + 9);
+      document.getElementById("date-picker").min = minDate.toISOString().slice(0, 10);
+      document.getElementById("date-picker").max = maxDate.toISOString().slice(0, 10);
+
+      function checkDateAvailability() {
+  var selectedDate = new Date(document.getElementById("date-picker").value);
+  var today = new Date();
+  if (selectedDate > maxDate) {
+    document.getElementById("date-picker").value = "";
+    alert("Please select a date between " + (today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear() + " and " + (maxDate.getMonth() + 1) + "/" + maxDate.getDate() + "/" + maxDate.getFullYear());
+  }
+}
+
+
+function getWeather() {
+    var selectedDate = new Date(document.getElementById("date-picker").value);
+    var city = sessionStorage.getItem('location'); 
+    var url = `http://localhost:8080/weather/${encodeURIComponent(city)}?targetDate=${selectedDate.toISOString().slice(0, 10).replace(/-/g, "")}`;
+    fetch(url)
+      .then(response => {
+        if(response.ok) {
+            return response.json();
+        }  
+        throw new Error('Network response was not ok.');
+        })
+      .then(data => {
+        console.log(data);
+        var minTemperature = data.minTemp;
+        var maxTemperature = data.maxTemp;
+        var precipitationRate = data.precipitationRate;
+        var weather = data.weather;
+
+        if(sessionStorage.getItem('date')){
+          sessionStorage.removeItem('date');
+        }
+        var storedate=(selectedDate.getFullYear().toString()+("00"+(selectedDate.getMonth()+1).toString()).slice(-2)+("00"+(selectedDate.getDate()).toString()).slice(-2));
+        sessionStorage.setItem('date', storedate);
+
+        var weatherInfo = document.getElementById("weather-info");
+        weatherInfo.innerHTML = "<p>Minimum Temperature: " + minTemperature + " &#8451;</p><p>Maximum Temperature: " + maxTemperature + " &#8451;</p><p>Precipitation Rate: " + precipitationRate + " %</p><p>Weather: " + weather + "</p>";
+        
+        sessionStorage.setItem("maxTemp", maxTemperature);
+        sessionStorage.setItem("minTemp", minTemperature);
+        sessionStorage.setItem("precipitationRate", precipitationRate);
+        sessionStorage.setItem("weather", weather);
+
+        var weatherImage = document.getElementById("weather-image");
+      switch (weather) {
+        case "sunny":
+          weatherImage.src = "weather_img/sunny.png";
+          weatherImage.style.display = "block";
+          break;
+        case "rainy":
+          weatherImage.src = "weather_img/rainy.png";
+          weatherImage.style.display = "block";
+          break;
+        case "cloudy":
+        weatherImage.src = "weather_img/cloudyy.png";
+        weatherImage.style.display = "block";
+          break;
+        case "blurry":
+        weatherImage.src = "weather_img/blurry1.png";
+        weatherImage.style.display = "block";
+          break;
+        case "snowy":
+        weatherImage.src = "weather_img/snowy.png";
+        weatherImage.style.display = "block";
+          break;
+        case "stormy":
+        weatherImage.src = "weather_img/stormy.png";
+        weatherImage.style.display = "block";
+          break;
+        default:
+          weatherImage.src = "path/to/default-image.jpg";
+          weatherImage.style.display = "block";
+          break;
+      }
+      
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+      function navigateToNextPage() {
+          // Perform the desired action
+          window.location.href = "chat.html";
+        }
+    
+    </script>
+  </body>
+</html>
