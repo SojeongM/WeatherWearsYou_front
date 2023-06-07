@@ -159,7 +159,7 @@ img {
     <button onclick="getWeather()">Get Weather</button>
     
     <div id="weather-box">
-      <h2>날씨 정보</h2>
+      <h2>날씨 정보<br><br></h2>
       <img id="weather-image" src="" alt="Weather Image" style="display: none; width: 300px; height: 300px; margin-top: 50px; margin-bottom: 30px;">
       <div id="weather-info"></div>
 
@@ -201,6 +201,12 @@ function getWeather() {
         var precipitationRate = data.precipitationRate;
         var weather = data.weather;
 
+        var arr=Array("sunny", "rainy", "cloudy", "blurry", "snowy", "stormy");
+        var arr2=Array("맑음", "비", "구름", "흐림", "눈", "폭풍");
+
+        var idx = arr.indexOf(weather);
+
+
         if(sessionStorage.getItem('date')){
           sessionStorage.removeItem('date');
         }
@@ -208,7 +214,7 @@ function getWeather() {
         sessionStorage.setItem('date', storedate);
 
         var weatherInfo = document.getElementById("weather-info");
-        weatherInfo.innerHTML = "<p>Minimum Temperature: " + minTemperature + " &#8451;</p><p>Maximum Temperature: " + maxTemperature + " &#8451;</p><p>Precipitation Rate: " + precipitationRate + " %</p><p>Weather: " + weather + "</p>";
+        weatherInfo.innerHTML = "<p>최저 기온: " + minTemperature + " &#8451;</p><p>최고 기온: " + maxTemperature + " &#8451;</p><p>강수 확률: " + precipitationRate + " %</p><p날씨: " + arr2[idx] + "</p>";
         
         sessionStorage.setItem("maxTemp", maxTemperature);
         sessionStorage.setItem("minTemp", minTemperature);
